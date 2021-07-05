@@ -1,6 +1,7 @@
 const app = require("express")();
 const server = require("http").createServer(app);
 const cors = require("cors");
+const path = require("path");
 
 const io = require("socket.io")(server, {
 	cors: {
@@ -32,5 +33,13 @@ io.on("connection", (socket) => {
 		io.to(data.to).emit("callAccepted", data.signal)
 	});
 });
+
+if(procces.env.NODE_ENV === "production"){
+	app.use(express.static('client/build'));
+
+  app.get('*',(req,res)=>{
+	  res.sendFile(paht.resolve(__dirname,'client','build','index.html')); 
+  })
+}
 
 server.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
