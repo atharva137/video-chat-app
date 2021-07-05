@@ -5,8 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "node index.js",
-		"dev": "nodemon index.js",
-		"heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefer client && npm run build --prefex client"
+		"dev": "nodemon index.js"
+		
 	},
 	"keywords": [],
 	"author": "",
